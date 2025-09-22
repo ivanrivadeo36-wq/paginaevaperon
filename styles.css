@@ -1,0 +1,279 @@
+/* Estilos generales para el sitio del CAPS */
+:root {
+    --primary-color: rgb(53, 139, 220); /* Rojo de Bootstrap */
+    --secondary-color: #344955; /* Gris oscuro */
+    --accent-color: #FF8A65; /* Naranja claro */
+    --light-bg: #f8f9fa; /* Fondo claro de Bootstrap */
+    --dark-text: #343a40; /* Texto oscuro */
+    --light-text: #fafaf8; /* Texto claro */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(white);
+    color: var(white);
+    line-height: 1.6;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.75rem 1rem;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Contenido principal */
+.content {
+    padding: 0;
+}
+
+/* Reglas CSS para ajustar el tamaño del carrusel */
+#mainCarousel .carousel-item img {
+    max-height: 300px; /* Altura máxima de la imagen */
+    width: auto;      /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Asegura que la imagen no se distorsione */
+}
+/* Agrega esta regla para cambiar el color de fondo */
+.carousel-inner {
+    background-color: white; /* Un gris claro. Puedes cambiarlo por el color que quieras. */
+}
+
+
+
+/* AHORA SÍ, la regla para el texto del carrusel */
+.carousel-caption h5,
+.carousel-caption p {
+    font-size: 2rem 
+    color: black; /* Color blanco para el texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para que se lea mejor */
+}
+
+/* Mensaje de bienvenida */
+.welcome-message {
+    border-left: 5px solid var(--primary-color);
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Cards de servicios */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color) !important;
+}
+
+footer h5 {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Formularios */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 101, 114, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Login container */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x800/4A6572/FFFFFF?text=Portal+del+Paciente');
+    background-size: cover;
+    background-position: center;
+}
+
+.info-panel {
+    color: white;
+    padding: 2rem;
+    height: 100%;
+}
+
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Appointment container */
+.appointment-container {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.calendar-highlight {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196F3;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.85em;
+    padding: 0.35em 0.65em;
+}
+
+/* Responsividad mejorada */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+        position: relative;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .login-form {
+        padding: 1.5rem;
+    }
+    
+    .appointment-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-form {
+        width: 90% !important;
+    }
+    
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible para mejor accesibilidad */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Mejora de contraste para accesibilidad */
+.text-muted {
+    color: #6c757d !important;
+}
+
+.alert {
+    border: none;
+    border-left: 4px solid transparent;
+}
+
+.alert-success {
+    border-left-color: #198754;
+}
+
+.alert-danger {
+    border-left-color: #dc3545;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+}
+
+.alert-info {
+    border-left-color: #0dcaf0;
+}
+
+/* Especialidades */
+.specialty-card {
+    transition: all 0.3s ease;
+}
+
+.specialty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Tablas */
+.table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Utilidades */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-justify {
+    text-align: justify;
+}

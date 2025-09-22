@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPS - Centro de Atención Primaria de la Salud</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 sidebar">
+                <div class="text-center py-4">
+                    <img src="IMAGENES/logo de eva.jpeg" alt="Logo CAPS" id="logo-caps" class="img-fluid" style="max-height: 80px;">
+                    <p class="mt-2 text-white">Centro de Atención Primaria de la Salud</p>
+                </div>
+
+                <div class="px-3 py-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-outline-light" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <nav class="navbar mt-3">
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="medicos-generalistas.html">
+                                <i class="fas fa-user-md me-2"></i> Médicos Generalistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nutricionista.html">
+                                <i class="fas fa-apple-alt me-2"></i> Nutricionistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="psicologos.html">
+                                <i class="fas fa-brain me-2"></i> Psicólogos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="medicos-pediatras.html">
+                                <i class="fas fa-baby me-2"></i> Médicos Pediatras
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link btn btn-primary text-white" href="turnos.html">
+                                <i class="fas fa-calendar-check me-2"></i> Solicitar Turno
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">
+                                <i class="fas fa-sign-in-alt me-2"></i> Portal del Paciente
+                            </a>
+                        </li>
+                        <li class="nav-item d-none" data-login-state="logged-in">
+                            <a class="nav-link text-warning" href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-9 col-lg-10 content">
+                <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="IMAGENES/imagen del eva.webp" class="d-block w-100" alt="Atención primaria de calidad">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Atención Primaria de Calidad</h5>
+                                <p>Servicios médicos integrales para toda la familia</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="IMAGENES/profesionales especializados.jfif" class="d-block w-100" alt="Profesionales especializados">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Profesionales Especializados</h5>
+                                <p>Contamos con un equipo multidisciplinario para tu salud</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="IMAGENES/medicina prevent.jfif" class="d-block w-100" alt="Medicina preventiva">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Medicina Preventiva</h5>
+                                <p>Programas de prevención y promoción de la salud</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+
+                <div class="alert alert-danger mt-4 welcome-message" role="alert">
+                    <h4 class="alert-heading text-center" id="welcome-text">
+                        Bienvenidos al Centro de Atención Primaria de la Salud
+                    </h4>
+                </div>
+                
+                <div class="card mb-4 mt-4" data-age-verification>
+                    <div class="card-header bg-primary text-white">
+                        <h5>Verificación de Edad</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Para acceder a nuestros servicios, necesitamos verificar que eres mayor de edad.</p>
+                        <form id="age-verification-form">
+                            <div class="mb-3">
+                                <label for="birthdate" class="form-label">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="birthdate" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Verificar Edad</button>
+                        </form>
+                        <div id="age-result" class="mt-3"></div>
+                    </div>
+                </div>
+
+                <div class="d-none" data-age-restricted>
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 bg-white text-dark">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-clock fa-3x mb-3 text-primary"></i>
+                                    <h5 class="card-title">Horarios de Atención</h5>
+                                    <p class="card-text">Lunes a Viernes: 8:00 - 20:00<br>Sábados: 8:00 - 13:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 bg-white text-dark">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-stethoscope fa-3x mb-3 text-primary"></i>
+                                    <h5 class="card-title">Especialidades</h5>
+                                    <p class="card-text">Médicos generalistas, pediatría, nutrición, psicología y más</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 bg-white text-dark">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-phone-alt fa-3x mb-3 text-primary"></i>
+                                    <h5 class="card-title">Turnos Telefónicos</h5>
+                                    <p class="card-text">Llamá al (380) 456-7890 para solicitar tu turno</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h5 class="mb-0">Nuestros Servicios</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Atención médica general</li>
+                                                <li class="list-group-item">Control de niño sano</li>
+                                                <li class="list-group-item">Vacunación</li>
+                                                <li class="list-group-item">Control de embarazo</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Asistencia psicológica</li>
+                                                <li class="list-group-item">Asesoramiento nutricional</li>
+                                                <li class="list-group-item">Enfermería</li>
+                                                <li class="list-group-item">Entrega de medicamentos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-4 pb-2 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> RUTA 5 KM 7/2, CP 5300 La Rioja</p>
+                    <p><i class="fas fa-phone me-2"></i> (380) 456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@capslarioja.ar</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Emergencias</h5>
+                    <p><i class="fas fa-ambulance me-2"></i> 107 - Emergencias Médicas</p>
+                    <p><i class="fas fa-fire me-2"></i> 100 - Bomberos</p>
+                    <p><i class="fas fa-shield-alt me-2"></i> 911 - Policía</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://maps.google.com/?q=RUTA+5+KM+7/2,+CP+5300+La+Rioja" target="_blank" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-map-marked-alt me-1"></i> Ver en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">© 2023 Centro de Atención Primaria de la Salud. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

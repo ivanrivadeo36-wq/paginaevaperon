@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal del Paciente - CAPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x800/4A6572/FFFFFF?text=Portal+del+Paciente');
+            background-size: cover;
+            background-position: center;
+        }
+        .info-panel {
+            color: white;
+            padding: 2rem;
+            height: 100%;
+        }
+        .login-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar/Navbar lateral -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <!-- Logo del CAPS (cambiable) -->
+                <div class="text-center py-4">
+                    <img src="https://via.placeholder.com/150x80/4A6572/FFFFFF?text=CAPS+Logo" alt="Logo CAPS" id="logo-caps" class="img-fluid" style="max-height: 80px;">
+                    <p class="mt-2 text-white">Centro de Atención Primaria de la Salud</p>
+                </div>
+
+                <!-- Barra de búsqueda -->
+                <div class="px-3 py-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-outline-light" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Menú de acceso rápido a profesionales -->
+                <nav class="navbar mt-3">
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="medicos-generalistas.html">
+                                <i class="fas fa-user-md me-2"></i> Médicos Generalistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nutricionista.html">
+                                <i class="fas fa-apple-alt me-2"></i> Nutricionistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="psicologos.html">
+                                <i class="fas fa-brain me-2"></i> Psicólogos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="medicos-pediatras.html">
+                                <i class="fas fa-baby me-2"></i> Médicos Pediatras
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link btn btn-primary text-white" href="turnos.html">
+                                <i class="fas fa-calendar-check me-2"></i> Solicitar Turno
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="login.html">
+                                <i class="fas fa-sign-in-alt me-2"></i> Portal del Paciente
+                            </a>
+                        </li>
+                        <li class="nav-item d-none" data-login-state="logged-in">
+                            <a class="nav-link text-warning" href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="col-md-9 col-lg-10 p-0">
+                <div class="login-container">
+                    <div class="row h-100">
+                        <!-- Panel informativo -->
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="info-panel d-flex flex-column justify-content-center">
+                                <h2 class="mb-4">Portal del Paciente</h2>
+                                <p class="lead mb-4">Accede a todos nuestros servicios de manera segura y rápida:</p>
+                                <ul class="mb-4">
+                                    <li>Solicitud de turnos online</li>
+                                    <li>Historial de consultas</li>
+                                    <li>Resultados de estudios</li>
+                                    <li>Comunicación con profesionales</li>
+                                    <li>Recordatorios de próximas visitas</li>
+                                </ul>
+                                <div class="alert alert-light mt-4" role="alert">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Si aún no tienes una cuenta, puedes registrarte con tu DNI, pasaporte o número de documento.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Formulario de login/registro -->
+                        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                            <div class="login-form w-75">
+                                <h3 class="text-center mb-4">Acceso al Portal</h3>
+                                
+                                <!-- Formulario de login -->
+                                <form id="loginForm" class="mb-4">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="password" required>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="remember">
+                                        <label class="form-check-label" for="remember">Recordarme</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                                    <div class="text-center mt-3">
+                                        <a href="#" id="forgotPassword">¿Olvidaste tu contraseña?</a>
+                                    </div>
+                                </form>
+                                
+                                <hr>
+                                
+                                <!-- Formulario de registro rápido para turnos -->
+                                <h5 class="text-center mb-3">¿No tienes cuenta? Solicita un turno</h5>
+                                <form id="quickAppointmentForm">
+                                    <div class="mb-3">
+                                        <label for="fullName" class="form-label">Nombre completo</label>
+                                        <input type="text" class="form-control" id="fullName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="idNumber" class="form-label">DNI o Pasaporte</label>
+                                        <input type="text" class="form-control" id="idNumber" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="appointmentEmail" class="form-label">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="appointmentEmail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Teléfono de contacto</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="specialty" class="form-label">Especialidad requerida</label>
+                                        <select class="form-select" id="specialty" required>
+                                            <option value="">Seleccione una especialidad</option>
+                                            <option value="general">Médico Generalista</option>
+                                            <option value="nutrition">Nutricionista</option>
+                                            <option value="psychology">Psicología</option>
+                                            <option value="pediatrics">Pediatría</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-primary w-100">Solicitar Turno</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-4 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> RUTA 5 KM 7/2, CP 5300 La Rioja</p>
+                    <p><i class="fas fa-phone me-2"></i> (380) 456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@capslarioja.ar</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Emergencias</h5>
+                    <p><i class="fas fa-ambulance me-2"></i> 107 - Emergencias Médicas</p>
+                    <p><i class="fas fa-fire me-2"></i> 100 - Bomberos</p>
+                    <p><i class="fas fa-shield-alt me-2"></i> 911 - Policía</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://maps.google.com/?q=RUTA+5+KM+7/2,+CP+5300+La+Rioja" target="_blank" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-map-marked-alt me-1"></i> Ver en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Centro de Atención Primaria de la Salud. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

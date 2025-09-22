@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicólogos - CAPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar/Navbar lateral -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <!-- Logo del CAPS (cambiable) -->
+                <div class="text-center py-4">
+                    <img src="https://via.placeholder.com/150x80/4A6572/FFFFFF?text=CAPS+Logo" alt="Logo CAPS" id="logo-caps" class="img-fluid" style="max-height: 80px;">
+                    <p class="mt-2 text-white">Centro de Atención Primaria de la Salud</p>
+                </div>
+
+                <!-- Barra de búsqueda -->
+                <div class="px-3 py-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-outline-light" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Menú de acceso rápido a profesionales -->
+                <nav class="navbar mt-3">
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="medicos-generalistas.html">
+                                <i class="fas fa-user-md me-2"></i> Médicos Generalistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nutricionista.html">
+                                <i class="fas fa-apple-alt me-2"></i> Nutricionistas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="psicologos.html">
+                                <i class="fas fa-brain me-2"></i> Psicólogos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="medicos-pediatras.html">
+                                <i class="fas fa-baby me-2"></i> Médicos Pediatras
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link btn btn-primary text-white" href="turnos.html">
+                                <i class="fas fa-calendar-check me-2"></i> Solicitar Turno
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">
+                                <i class="fas fa-sign-in-alt me-2"></i> Portal del Paciente
+                            </a>
+                        </li>
+                        <li class="nav-item d-none" data-login-state="logged-in">
+                            <a class="nav-link text-warning" href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt me-2"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="col-md-9 col-lg-10 content">
+                <div class="container-fluid mt-4">
+                    <h1 class="mb-4">Psicólogos</h1>
+                    
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Nuestros profesionales de psicología brindan atención especializada para el cuidado de la salud mental, ofreciendo un espacio de contención y herramientas para el bienestar emocional.
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4 specialty-card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                <img src="IMAGENES/psicologa.jfif" alt="Lic.Laura Fernandez"width: 60px; height: 60px;>
+                                            <i class="fas fa-brain fa-lg text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-0">Lic. Laura Fernández</h5>
+                                            <p class="card-text text-muted mb-0">Terapia Cognitivo-Conductual</p>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Especialista en ansiedad, depresión y trastornos del estado de ánimo. Terapia individual para adultos y adolescentes.</p>
+                                    <p><strong>Horarios:</strong> Lunes a Jueves de 10:00 a 16:00</p>
+                                    <p><strong>Especialidades:</strong> Ansiedad, depresión, trastornos del estado de ánimo, terapia individual</p>
+                                    <a href="turnos.html?especialidad=psychology&medico=Lic. Laura Fernández" class="btn btn-primary">Solicitar Turno</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card mb-4 specialty-card">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                <img src="IMAGENES/Psicologo H.jfif" alt="Lic.Miguel Rodriguez"width: 60px; height: 60px;>
+                                            <i class="fas fa-brain fa-lg text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-0">Lic. Miguel Rodríguez</h5>
+                                            <p class="card-text text-muted mb-0">Psicología Social y Comunitaria</p>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Atención focalizada en problemáticas sociales, familiares y de pareja. Talleres grupales y intervenciones comunitarias.</p>
+                                    <p><strong>Horarios:</strong> Martes, Miércoles y Viernes de 12:00 a 18:00</p>
+                                    <p><strong>Especialidades:</strong> Terapia familiar, terapia de pareja, intervención comunitaria, talleres grupales</p>
+                                    <a href="turnos.html?especialidad=psychology&medico=Lic. Miguel Rodríguez" class="btn btn-primary">Solicitar Turno</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0">Servicios de Psicología</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Evaluación y diagnóstico psicológico</li>
+                                        <li class="list-group-item">Terapia individual para adultos y adolescentes</li>
+                                        <li class="list-group-item">Orientación y terapia familiar</li>
+                                        <li class="list-group-item">Intervención en crisis</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Talleres grupales de desarrollo personal</li>
+                                        <li class="list-group-item">Acompañamiento en situaciones de duelo</li>
+                                        <li class="list-group-item">Orientación vocacional y laboral</li>
+                                        <li class="list-group-item">Técnicas de manejo de estrés y ansiedad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Importante:</strong> Todas las sesiones son confidenciales y se rigen por el código de ética profesional. La primera consulta es de evaluación y orientación.
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="index.html" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i> Volver al Inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-4 pb-2 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> RUTA 5 KM 7/2, CP 5300 La Rioja</p>
+                    <p><i class="fas fa-phone me-2"></i> (380) 456-7890</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@capslarioja.ar</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Emergencias</h5>
+                    <p><i class="fas fa-ambulance me-2"></i> 107 - Emergencias Médicas</p>
+                    <p><i class="fas fa-fire me-2"></i> 100 - Bomberos</p>
+                    <p><i class="fas fa-shield-alt me-2"></i> 911 - Policía</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://maps.google.com/?q=RUTA+5+KM+7/2,+CP+5300+La+Rioja" target="_blank" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-map-marked-alt me-1"></i> Ver en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Centro de Atención Primaria de la Salud. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
